@@ -4,6 +4,7 @@ const addAlarm = document.querySelector('.Set_Alarm')
 const myList = document.querySelector('#List');
 
 
+
 // To set digital clock in proper formate
 function properTime(){
     var time=new Date();
@@ -46,9 +47,10 @@ addAlarm.addEventListener('submit', e=> {
     e.preventDefault();
     // const newAlarm = addAlarm.alarmTime.value;
     let formate=addAlarm.formate.value;
-    let hour=addAlarm.hour.value;
+    var hour=addAlarm.hour.value;
     if(hour>=1&& formate=="PM"){
-        hour+=12;
+        console.log(hour)
+        hour=24-(12-hour);
     }
     let new_h=formatTime(hour);
     if(new_h === '0'){
@@ -65,7 +67,10 @@ addAlarm.addEventListener('submit', e=> {
     
     
     const newAlarm = `${new_h}:${new_m}:${new_s}`
-
+    if(new_h>12){
+        new_h=new_h-12;
+    }
+    let showAlarm=`${new_h}:${new_m}:${new_s}`
 //     add newAlarm to alarmList
     if(isNaN(newAlarm)){
         if(!alarmList.includes(newAlarm)){
@@ -73,7 +78,8 @@ addAlarm.addEventListener('submit', e=> {
             console.log(alarmList);
             
             console.log(alarmList.length);
-            showNewAlarm(newAlarm,formate);
+          
+            showNewAlarm(showAlarm,newAlarm,formate);
             addAlarm.reset();
         } else{
             alert(`Alarm for ${newAlarm} already set.`);
@@ -83,10 +89,10 @@ addAlarm.addEventListener('submit', e=> {
     }        
 })
 //Show alarm List with seprate delete button
-function showNewAlarm(newAlarm,formate){
+function showNewAlarm(showAlarm,newAlarm,formate){
     const html =`
     <li class = "time-list">        
-        <span class="time">${newAlarm+" "+formate}</span>
+        <span class="time">${showAlarm+" "+formate}</span>
         <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
     </li>`
     List.innerHTML += html
@@ -107,4 +113,24 @@ List.addEventListener('click', e=> {
         e.target.parentElement.remove();
     }    
 })
+//For ring alarm clock
+function AlarmRing(){
+    var today = new Date();
+    const hour = formatTime(today.getHours());
+    const minutes = formatTime(today.getMinutes());
+    const seconds = formatTime(today.getSeconds());
+    var new_sec=seconds
+    const now = `${hour}:${minutes}:${seconds}`;
+    console.log(now)
+    console.log("welcome");
+    if(alarmList.includes(now)){
+        // ringing(now);
+      
+    alert(`Alarm Ringing `);
+
+    }
+    
+}
+setInterval(AlarmRing, 1000);
+
 
