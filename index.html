@@ -13,6 +13,23 @@
         <div class="current_time" id="display_time">
             <p id="dispaly"></p>
         </div>
+        <!--Create all Time input field in that formate hh-mm-ss-AM/PM-->
+        <form class="Set_Alarm">
+            <input type="number" class="Set_Input" id="hour" placeholder="HH" maxlength="12" minlength="0">
+            <input type="number" class="Set_Input" id="minute" placeholder="MM" maxlength="59" minlength="0">
+            <input type="number" class="Set_Input" id="second" placeholder="SS" maxlength="59" minlength="0">
+          
+           <select name="formate" id="formate">
+            <option value="" disabled selected>Formate</option>
+               <option value="AM">AM</option>
+               <option value="PM">PM</option>
+           </select>
+       <!--Button to add alarm-->
+        <div class="Add_Alarm_Button">
+            <button type="submit"  class="btn">Add_Alarm</button>
+        </div>
+        </form>
+        <ul id="List" class="list"></ul>
     </div>
     <script src="index.js"></script>
 </body>

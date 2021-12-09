@@ -1,0 +1,60 @@
+/**set body background colour*/
+body{
+    background-color: azure;
+}
+/*Set Style for Main Container*/
+.main{
+    text-align: center;
+    border: 1px solid skyblue;
+    width: 30%;
+    margin-left: 30%;
+}
+/*Set style for paragraph that means Show Time*/
+p{
+    font-size: 30px;
+    font-weight: bold;
+    border: .5px solid blue;
+    width: 50%;
+    margin-left: 25%;
+    background-color: cornflowerblue;
+}
+/*Controll width of input field*/
+input{
+    width: 10%;
+}
+.Add_Alarm_Button{
+    margin-top: 1rem;
+    
+}
+.btn{
+    background-color: darkgrey;
+}
+/*List Show Container styling*/
+.time-list{
+   
+    text-align: left;
+    font-size: 22px;
+    font-weight: bold;
+    height: 1.5rem;
+    margin-right: 3rem;
+    vertical-align: middle;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+/*Style for delete button*/
+.deleteAlarm{
+    background-color: darksalmon;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+/*set odd chile background color of display list*/
+li:nth-child(odd){
+    list-style: none;
+    background-color:slategray;
+}
+/*set even chile background color of display list*/
+li:nth-child(even){
+    list-style: none;
+    background-color: paleturquoise;
+}
