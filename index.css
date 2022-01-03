@@ -58,3 +58,44 @@ li:nth-child(even){
     list-style: none;
     background-color: paleturquoise;
 }
+/* Style for show message alarm list */
+.Alarm_List{
+    /* float: left; */
+    margin-left: 35%;
+    margin-top: 10%;
+    text-align: center;
+    background-color: burlywood;
+    width: 30%;
+    font-size: 22px;
+    font-weight: bold;
+}
+/* styles for empty message like Alarm List Empty */
+#empty{
+    background-color: aqua;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+/* styles for page responsibe using media query */
+@media screen and (max-width: 1348px) {
+    .main{
+        text-align: center;
+        border: 1px solid skyblue;
+        width: 50%;
+        margin-left: 25%;
+    }
+  }
+  @media screen and (max-width: 883px) {
+    .main{
+        text-align: center;
+        border: 1px solid skyblue;
+        width:90%;
+        float: left;
+        margin-left:5%;
+        margin-right: 5%;
+        
+    }
+  }

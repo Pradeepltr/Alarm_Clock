@@ -12,7 +12,7 @@ function properTime(){
     var h=time.getHours();
     var m=time.getMinutes();
     var s=time.getSeconds();
-    if(h>12){
+    if(h>=12){
         session="PM";
         h=h-12;
     }
@@ -46,6 +46,7 @@ var alarmList=[];
 addAlarm.addEventListener('submit', e=> {
     e.preventDefault();
     // const newAlarm = addAlarm.alarmTime.value;
+   
     let formate=addAlarm.formate.value;
     var hour=addAlarm.hour.value;
     if(hour>=1&& formate=="PM"){
@@ -76,6 +77,7 @@ addAlarm.addEventListener('submit', e=> {
         if(!alarmList.includes(newAlarm)){
             alarmList.push(newAlarm);
             console.log(alarmList);
+            Empty();
             
             console.log(alarmList.length);
           
@@ -90,7 +92,9 @@ addAlarm.addEventListener('submit', e=> {
 })
 //Show alarm List with seprate delete button
 function showNewAlarm(showAlarm,newAlarm,formate){
+   
     const html =`
+    
     <li class = "time-list">        
         <span class="time">${showAlarm+" "+formate}</span>
         <button class="deleteAlarm time-control" id="delete-button" onclick = "remove(this.value)" value=${newAlarm}>Delete Alarm</button>       
@@ -105,6 +109,7 @@ remove = (value) => {
     
     console.log("newList", newList);
     console.log("alarmList", alarmList);
+    Empty();
 }
 // removes an alarm from the unordered list and the webpage when "Delete Alarm" is clicked
 List.addEventListener('click', e=> {
@@ -113,7 +118,7 @@ List.addEventListener('click', e=> {
         e.target.parentElement.remove();
     }    
 })
-//For ring alarm clock
+//For ring alarm clock alert box
 function AlarmRing(){
     var today = new Date();
     const hour = formatTime(today.getHours());
@@ -132,5 +137,17 @@ function AlarmRing(){
     
 }
 setInterval(AlarmRing, 1000);
+// Handle empty list if no any alarm present in list
+function Empty(){
+   
+    var emptydiv=document.getElementById('empty');
+    if(alarmList.length!==0){
+        console.log("hello")
+        emptydiv.innerHTML="";
+    }else{
+        emptydiv.innerHTML="Alarm List Empty";
+    }
+}
+// setInterval(Empty,1000);
 
 
