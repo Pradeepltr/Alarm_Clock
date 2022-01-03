@@ -2,7 +2,7 @@
 const addAlarm = document.querySelector('.Set_Alarm')
 //to select ul list to append all alarm list
 // const List = document.querySelector('#List');
-
+var audio = new Audio('https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba-online-audio-converter.com_-1.wav');
 
 
 // To set digital clock in proper formate
@@ -49,10 +49,14 @@ addAlarm.addEventListener('submit', e=> {
    
     let formate=addAlarm.formate.value;
     var hour=addAlarm.hour.value;
-    if(hour>=1&& formate=="PM"){
+    if(hour>=1&&hour<12&&formate=="PM"){
         console.log(hour)
         hour=24-(12-hour);
     }
+    if(hour==12&&formate=="AM"){
+        hour=24-(12-hour);
+    }
+    
     let new_h=formatTime(hour);
     if(new_h === '0'){
         new_h = '00'
@@ -130,8 +134,15 @@ function AlarmRing(){
     console.log("welcome");
     if(alarmList.includes(now)){
         // ringing(now);
-      
-    alert(`Alarm Ringing `);
+        // alert("alarm ringing");
+        const html=`
+        <h3 id="msg">Alarm Ringing</h3>
+        <button class="btn1" id="btnclr" onclick="sonudEffect(true)" >Stop Alarm</button>
+        `
+        StopAlarm.innerHTML+=html;
+      audio.play();
+    
+  
 
     }
     
@@ -149,5 +160,17 @@ function Empty(){
     }
 }
 // setInterval(Empty,1000);
+// function for alarm sound
+function  sonudEffect(b){
+    
+    audio.play();
+    if(b){
+        audio.pause();
+        document.getElementById('StopAlarm').innerHTML = "";
+    }else{
+        audio.play();
+    }
+   
+}
 
 
