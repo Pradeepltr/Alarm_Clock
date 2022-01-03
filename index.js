@@ -1,7 +1,7 @@
 //get all form data using query selector
 const addAlarm = document.querySelector('.Set_Alarm')
 //to select ul list to append all alarm list
-const myList = document.querySelector('#List');
+// const List = document.querySelector('#List');
 
 
 

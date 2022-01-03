@@ -98,4 +98,31 @@ li:nth-child(even){
         margin-right: 5%;
         
     }
+
+  }
+  @media screen and (max-width: 477px) {
+    .main{
+        text-align: center;
+        border: 1px solid skyblue;
+        width: 100%;
+        /* margin-left:5%; */
+        margin-right:10%;
+    }
+    .time-list{
+   
+        text-align: left;
+        font-size: 18px;
+        font-weight: bold;
+        height: 1.5rem;
+        vertical-align: middle;
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    .deleteAlarm{
+        background-color: darksalmon;
+        float: right;
+        font-size: 12px;
+        font-weight: bold;
+    }
+   
   }
